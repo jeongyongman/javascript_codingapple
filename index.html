@@ -10,17 +10,29 @@
 <body>
     <div class="alert-box" id="alert">
         <p id='title'>Alert 박스</p>
-        <button onclick="알림창보기('none')">×</button>
+        <button id="close">닫기</button>
     </div>
-    <button onclick="알림창보기('block','아이디를 입력안하셨어요')">버튼1</button>
-    <button onclick="알림창보기('block','비번을 입력안하셨어요')">버튼2</button>
+    <!-- <button onclick="알림창보기('block','아이디를 입력안하셨어요')">버튼1</button> -->
+    <!-- <button onclick="알림창보기('block','비번을 입력안하셨어요')">버튼2</button> -->
+    <button id="id">버튼1</button>
+    <button id="pass">버튼2</button>
     
     <script>
         function 알림창보기(표시,내용) {
             document.getElementById('title').innerHTML=내용;
             document.getElementById('alert').style.display=표시;
-            document.getElementById('alert').style.marginBottom='10px';
+            document.getElementById('title').style.display='inline';
         }
+        document.getElementById('id').addEventListener('click',function(){
+            알림창보기('block','아이디를 입력안하셨어요');
+        });
+        document.getElementById('pass').addEventListener('click',function(){
+            알림창보기('block','비번을 입력안하셨어요');
+        });
+        document.getElementById('close').addEventListener('click',function(){
+            document.getElementById('alert').style.display='none';
+        });
+
     </script>
 </body>
 </html>
